@@ -94,4 +94,9 @@ class CourseController extends Controller
 
         return redirect()->route('courses.index')->with('success', __('general.delete_course') . ' ' . __('general.successfully'));
     }
+    public function courseStudents($id)
+{
+    $course = Course::with('users')->findOrFail($id);
+    return view('admin.courses.students', compact('course'));
+}
 }

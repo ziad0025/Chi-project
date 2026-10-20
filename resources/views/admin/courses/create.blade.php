@@ -40,9 +40,10 @@
                     <select name="grade" id="grade" 
                             class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition text-sm bg-white @error('grade') border-rose-500 @enderror" required>
                         <option value="" disabled selected> {{ __('general.grade_year') }} </option>
-                        <option value="الصف الأول الثانوي" {{ old('grade') == 'الصف الأول الثانوي' ? 'selected' : '' }}>الصف الأول الثانوي</option>
-                        <option value="الصف الثاني الثانوي" {{ old('grade') == 'الصف الثاني الثانوي' ? 'selected' : '' }}>الصف الثاني الثانوي</option>
-                        <option value="الصف الثالث الثانوي" {{ old('grade') == 'الصف الثالث الثانوي' ? 'selected' : '' }}>الصف الثالث الثانوي</option>
+                        <option value="الصف الأول الثانوي" {{ old('grade') == 'الصف الأول الثانوي' ? 'selected' : '' }}>الصف الأول </option>
+                        <option value="الصف الثاني الثانوي" {{ old('grade') == 'الصف الثاني الثانوي' ? 'selected' : '' }}>الصف الثاني </option>
+                        <option value="الصف الثالث الثانوي" {{ old('grade') == 'الصف الثالث الثانوي' ? 'selected' : '' }}>الصف الثالث </option>
+                        <option value="الصف الثالث الثانوي" {{ old('grade') == 'الصف الثالث الثانوي' ? 'selected' : '' }}>الصف الرابع </option>
                     </select>
                     @error('grade')
                         <p class="text-xs text-rose-500 mt-1">{{ $message }}</p>

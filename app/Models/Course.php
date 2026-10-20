@@ -19,4 +19,8 @@ class Course extends Model
     {
         return $this->hasMany(Lesson::class)->orderBy('order', 'asc'    );
     }
+    public function users()
+{
+    return $this->belongsToMany(User::class, 'course_user');
+}
 }

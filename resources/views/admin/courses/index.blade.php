@@ -59,16 +59,24 @@
                     <div class="px-5 py-3.5 bg-slate-50/80 border-t border-slate-100 flex items-center justify-between">
                         <a href="{{ route('lessons.index', $course->id) }}" 
                            class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 transition">
-                           {{ __('general.show_contant') }}
+                            {{ __('general.show_contant') }}
                         </a>
 
                         <div class="flex items-center gap-2">
+                            <!-- Students List Icon -->
+                            <a href="{{ route('courses.students', $course->id) }}" class="p-1.5 text-slate-400 hover:text-indigo-600 transition" title="{{ __('general.show_students') ?? 'الطلاب المسجلين' }}">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                </svg>
+                            </a>
+
                             <!-- Edit -->
                             <a href="{{ route('courses.edit', $course->id) }}" class="p-1.5 text-slate-400 hover:text-indigo-600 transition" title="{{ __('general.edit') }}">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 00-2 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
                                 </svg>
                             </a>
+                            
                             <!-- Delete -->
                             <form action="{{ route('courses.destroy', $course->id) }}" method="POST" onsubmit="return confirm('{{ __('general.confirm_delete') }}')">
                                 @csrf

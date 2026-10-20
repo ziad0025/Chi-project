@@ -6,22 +6,22 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\StudentController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
- })->middleware(['auth', 'verified'])->name('dashboard');
+    require __DIR__.'/auth.php';
+    
+    Route::middleware('auth','admin')->group(function () {
 
-// Route::middleware('auth')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
+    
 
-require __DIR__.'/auth.php';
 // language switcher route
 Route::get('lang/{lang}', [LanguageController::class, 'switchLang'])->name('lang.switch');
 
@@ -34,16 +34,18 @@ Route::get('/courses/{id}/edit', [CourseController::class, 'edit'])->name('cours
 Route::put('/courses/{id}', [CourseController::class, 'update'])->name('courses.update');
 Route::delete('/courses/{id}', [CourseController::class, 'destroy'])->name('courses.destroy');
 
+Route::get('/admin/courses/{course}/students', [CourseController::class, 'courseStudents'])->name('courses.students');
+
 // lesson routes
-    Route::get('/courses/{course}/lessons', [LessonController::class, 'index'])->name('lessons.index');
-    Route::get('/courses/{course}/lessons/create', [LessonController::class, 'create'])->name('lessons.create');
+Route::get('/courses/{course}/lessons', [LessonController::class, 'index'])->name('lessons.index');
+Route::get('/courses/{course}/lessons/create', [LessonController::class, 'create'])->name('lessons.create');
     Route::post('/courses/{course}/lessons', [LessonController::class, 'store'])->name('lessons.store');
     Route::get('/courses/{course}/lessons/{lesson}/show', [LessonController::class, 'show'])->name('lessons.show');
     Route::get('/courses/{course}/lessons/{lesson}/edit', [LessonController::class, 'edit'])->name('lessons.edit');
     Route::put('/courses/{course}/lessons/{lesson}', [LessonController::class, 'update'])->name('lessons.update');
     Route::delete('/courses/{course}/lessons/{lesson}', [LessonController::class, 'destroy'])->name('lessons.destroy');
 
-// user routes
+    // user routes
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
@@ -51,3 +53,11 @@ Route::delete('/courses/{id}', [CourseController::class, 'destroy'])->name('cour
     Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    });
+    // student routes
+    Route::middleware(['auth', 'student'])->group(function () {
+    Route::get('/student/courses', [StudentController::class, 'index'])->name('students.index');
+    Route::get('//student/my-courses', [StudentController::class, 'myCourses'])->name('students.my-courses');
+    Route::post('/student/courses/{course}/enroll', [StudentController::class, 'enroll'])->name('students.enroll');
+    Route::delete('/courses/{course}/unenroll', [StudentController::class, 'unenroll'])->name('students.unenroll');
+    });

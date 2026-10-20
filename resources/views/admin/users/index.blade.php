@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mx-auto px-6 py-8">
     <div class="flex justify-between items-center mb-6">
-        <h3 class="text-gray-700 text-3xl font-medium">{{ __('general.user_management') }}</h3>
+        <h3 class="text-gray-700 text-3xl  font-bold">{{ __('general.user_management') }}</h3>
     </div>
 
     <!-- جدول عرض الطلاب -->
@@ -16,7 +16,6 @@
                             <th class="px-6 py-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('general.name') }}</th>
                             <th class="px-6 py-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('general.email') }}</th>
                             <th class="px-6 py-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('general.phone') }}</th>
-                            <th class="px-6 py-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('general.current_balance') }}</th>
                             <th class="px-6 py-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('general.role') }}</th>
                             <th class="px-6 py-3 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('general.actions') }}</th>
                         </tr>
@@ -32,9 +31,6 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm text-center leading-5 text-gray-500">
                                     {{ $user->phone ?? __('general.not_available') }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-no-wrap text-sm text-center leading-5 font-semibold text-green-600">
-                                    {{ number_format($user->balance ?? 0, 2) }} 
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm text-center leading-5 font-semibold text-green-600">
                                     {{ $user->role }} 
