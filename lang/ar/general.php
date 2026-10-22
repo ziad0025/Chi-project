@@ -182,7 +182,7 @@ return [
     'browse_available_courses' => 'تصفح الكورسات المتاحة',
     'enrolled_already' => 'مسجل بالفعل',
     'enroll_now' => 'التسجيل في الكورس',
-    'start_learning' => 'بدء التعلم ومشاهدة الدروس',
+    'start_learning' => 'مشاهدة الدروس',
     'no_enrolled_courses' => 'لم تقم بالتسجيل في أي كورس بعد',
     'no_enrolled_desc' => 'استعرض الكورسات المتاحة وابدأ التسجيل الآن.',
     'enroll_success' => 'تم التسجيل في الكورس بنجاح',

@@ -12,7 +12,7 @@
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Full Name')" class="text-gray-600 font-semibold mb-1" />
-            <x-text-input id="name" class="block w-full rounded-lg border-gray-200 bg-gray-50 focus:bg-white focus:border-black focus:ring-black transition-colors" type="text" name="name" :value="old('name')" placeholder="John Doe" required autofocus autocomplete="name" />
+            <x-text-input id="name" class="block w-full rounded-lg border-gray-200 bg-gray-50 focus:bg-white focus:border-black focus:ring-black transition-colors" type="text" name="name" :value="old('name')" placeholder="Enter Your Name" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 

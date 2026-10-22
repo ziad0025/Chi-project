@@ -4,9 +4,7 @@
         <!-- Logo / Brand Area -->
         <div class="h-16 flex items-center justify-between px-6 border-b border-slate-800">
             <a href="{{ route('dashboard') }}" class="flex items-center gap-3">
-                <div class="h-9 w-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                    L
-                </div>
+                <img src="{{ asset('images/logo-white.png') }}" alt="Logo" class="h-10 mb-2">
                 <span class="text-lg font-bold text-white tracking-wide">LMS Admin</span>
             </a>
 

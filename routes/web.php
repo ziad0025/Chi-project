@@ -60,4 +60,5 @@ Route::get('/courses/{course}/lessons/create', [LessonController::class, 'create
     Route::get('//student/my-courses', [StudentController::class, 'myCourses'])->name('students.my-courses');
     Route::post('/student/courses/{course}/enroll', [StudentController::class, 'enroll'])->name('students.enroll');
     Route::delete('/courses/{course}/unenroll', [StudentController::class, 'unenroll'])->name('students.unenroll');
+    Route::get('/student/courses/{course}', [StudentController::class, 'show'])->name('students.show');
     });

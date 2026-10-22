@@ -4,9 +4,7 @@
         <!-- Logo / Brand Area -->
         <div class="h-16 flex items-center justify-between px-6 border-b border-slate-800 bg-slate-950/40">
             <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-md">
-                    S
-                </div>
+                 <img src="{{ asset('images/logo-white.png') }}" alt="Logo" class="h-10 mb-2">
                 <span class="text-base font-bold text-white tracking-wide">{{ __('general.student_dashboard') ?? 'بوابة الطلاب' }}</span>
             </div>
 

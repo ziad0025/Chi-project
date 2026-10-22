@@ -174,7 +174,7 @@ return [
     'browse_available_courses' => 'Browse Available Courses',
     'enrolled_already' => 'Already Enrolled',
     'enroll_now' => 'Enroll in Course',
-    'start_learning' => 'Start Learning & Watch Lessons',
+    'start_learning' => 'Watch Lessons',
     'no_enrolled_courses' => 'You haven\'t enrolled in any course yet',
     'no_enrolled_desc' => 'Browse available courses and start enrolling now.',
     'enroll_success' => 'Successfully enrolled in the course',

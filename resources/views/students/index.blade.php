@@ -17,11 +17,11 @@
             @foreach($courses as $course)
                 <div class="bg-white rounded-2xl border border-slate-100 shadow-xs overflow-hidden flex flex-col justify-between hover:shadow-md transition">
                     
-                    <!-- Top Image Banner (نفس الهيدر المظلم للكارت) -->
-                    <div class="relative h-44 bg-slate-900 flex items-center justify-center p-4">
-                        <span class="text-2xl font-bold text-white tracking-wide opacity-90">Course</span>
-                        
-                     
+                    <!-- Top Image Banner  -->
+                   <div class="relative h-44 bg-slate-100">
+                        <img src="{{ $course->image ? asset('storage/' . $course->image) : 'https://placehold.co/600x400/1e293b/FFF?text=Course' }}" 
+                            alt="{{ $course->title }}" 
+                            class="w-full h-full object-cover">
                     </div>
 
                     <!-- Content -->

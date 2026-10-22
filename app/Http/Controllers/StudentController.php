@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use Illuminate\Support\Facades\Auth;
 
+
 class StudentController extends Controller
 {
     // عرض الكورسات المتاحة ليقوم الطالب بالتسجيل فيها
@@ -47,4 +48,20 @@ public function unenroll($id)
 
     return redirect()->route('students.my-courses')->with('success', __('general.course_removed') ?? 'تم إزالة الكورس من قائمتك بنجاح');
 }
+    public function show(Course $course)
+    {
+        // التأكد إن الطالب مشترك في الكورس ده فعلاً
+        if (!auth()->user()->courses->contains($course->id)) {
+            abort(403, 'أنت غير مشترك في هذا الكورس.');
+        }
+
+        // جلب الدروس مرتبة
+        $lessons = $course->lessons()->orderBy('order', 'asc')->get();
+        
+        // تحديد الدرس النشط (اللي الطالب داس عليه، أو أول درس لو لسه بيدخل)
+        $activeLessonId = request('lesson', $lessons->first()?->id);
+        $activeLesson = $lessons->firstWhere('id', $activeLessonId);
+
+        return view('students.show', compact('course', 'lessons', 'activeLesson'));
+    }
 }
